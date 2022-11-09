@@ -210,6 +210,10 @@
                     </div>
 
                     <h1>Area de trabajo</h1>
+    
+                    <form action="./business/roomaction.php" method="POST">
+                        <button type="submit">Conectar</button>
+                    </form>
 
                 </div>
                 <!-- /.container-fluid -->
