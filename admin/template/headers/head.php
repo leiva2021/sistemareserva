@@ -12,11 +12,26 @@
     <title>Sistema Reserva</title>
 
     <!-- Custom fonts for this template-->
-    <?php if (isset($_GET['type']) && $_GET['type'] == "page") { ?>
+    <?php if (isset($_GET['type']) && $_GET['type'] == "page" && isset($_GET['name']) && $_GET['name'] == "room") { ?>
+
         <link href="../../../resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="../../../resources/css/sb-admin-2.min.css" rel="stylesheet">
         <!-- Custom styles for this page -->
         <link href="../../../resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
+
+    <?php } else { ?>
+
+        <link href="../../../resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="../../../resources/css/sb-admin-2.min.css" rel="stylesheet">
+        <!-- Custom styles for this page -->
+        <link href="../../../resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
+
     <?php } ?>
 
     <link href="../resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,13 +54,25 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.php">
-                <div class="sidebar-brand-icon rotate-n-10">
-                    <!--<i class="fas fa-laugh-wink"></i>-->
-                    <i class="bi bi-house-door"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Reservas</div>
-            </a>
+            <?php if (isset($_GET['type']) && $_GET['type'] == "page") { ?>
+
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../home.php">
+                    <div class="sidebar-brand-icon rotate-n-10">
+
+                        <i class="bi bi-house-door"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3">Reservas</div>
+                </a>
+            <?php } else { ?>
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.php">
+                    <div class="sidebar-brand-icon rotate-n-10">
+
+                        <i class="bi bi-house-door"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3">Reservas</div>
+                </a>
+
+            <?php } ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -74,8 +101,19 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Gestionar:</h6>
-                        <a class="collapse-item" href="views/pages/room.php?type=page">Habitaciones</a>
-                        <a class="collapse-item" href="cards.html">Extras</a>
+
+                        <?php if (isset($_GET['type']) && $_GET['type'] == "page") { ?>
+
+                            <a class="collapse-item" href="./roomview.php?type=page&name=room">Habitaciones</a>
+                            <a class="collapse-item" href="./extraview.php?type=page&name=extra">Extras</a>
+
+                        <?php } else { ?>
+                            <!-- Funciona si es Home -->
+                            <a class="collapse-item" href="views/pages/roomview.php?type=page&name=room">Habitaciones</a>
+                            <a class="collapse-item" href="views/pages/extraview.php?type=page&name=extra">Extras</a>
+
+                        <?php } ?>
+
                     </div>
                 </div>
             </li>

@@ -84,7 +84,9 @@
 
             </div>
 
-        </div>
+        </div> <!-- end of container -->
+
+        <!-- trabajar aqui para abajo -->
 
     </div>
 
