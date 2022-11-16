@@ -18,8 +18,8 @@ class RoomData
         $roomNumber = $roomNumber + 1;
 
         $stid2 = oci_parse($connexion, "call INSERT_ROOM($roomNumber,'" . $room->getImage() . "','" .
-            $room->getDescription() . "','" . $room->getPrice() . "','" . $room->getAmountPeople() . "','" .
-            $room->getIdExtra() . "')");
+            $room->getDescription() . "','" . $room->getPrice() . "','" . $room->getAmountPeople() .
+            "','" . $room->getRoomAvailable() . "','" . $room->getIdExtra() . "')");
 
         oci_execute($stid2);
         $e = oci_error($stid2);
@@ -66,8 +66,8 @@ class RoomData
         $result = false;
         $room_number = $room->getRoomNumber();
         $stid2 = oci_parse($connexion, "call UPDATE_ROOM($room_number,'" . $room->getImage() . "','" .
-            $room->getDescription() . "','" . $room->getPrice() . "','" . $room->getAmountPeople() . "','" .
-            $room->getIdExtra() . "')");
+            $room->getDescription() . "','" . $room->getPrice() . "','" . $room->getAmountPeople() .
+            "','" . $room->getRoomAvailable() . "','" . $room->getIdExtra() . "')");
 
         oci_execute($stid2);
         $e = oci_error($stid2);

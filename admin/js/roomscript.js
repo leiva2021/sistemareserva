@@ -104,6 +104,7 @@ var limpiar_form = function () {
     $("#description").val("");
     $("#price").val("");
     $("#amountpeople").val("");
+    $("#roomavailable").val("");
     $("#extras").val("1");
     $("#currentimg").val("");
 
@@ -144,6 +145,11 @@ var listar = function () {
             }
         },
         {
+            "data": "ROOMAVAILABLE", "render": function(data){
+                return '<center>'+data+'</center>';
+            }
+        },
+        {
             "data": "IDEXTRA"
         },
         {
@@ -172,6 +178,7 @@ var obtener_data_editar = function (tbody, table) {
         var description = $("#description").val(data.DESCRIPTIONS);
         var price = $("#price").val(data.PRICE);
         var amountpeople = $("#amountpeople").val(data.AMOUNTPEOPLE);
+        var roomavailable = $("#roomavailable").val(data.ROOMAVAILABLE);
         var extras = $("#extras").val(data.IDEXTRA);
         var opc = $("#opc").val("edit");
 

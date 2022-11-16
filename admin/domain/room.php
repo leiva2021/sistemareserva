@@ -8,15 +8,17 @@ class Room
     private $Description;
     private $Price;
     private $AmountPeople;
+    private $RoomAvailable;
     private $IdExtra;
 
-    public function __construct($RoomNumber, $Image, $Description, $Price, $AmountPeople, $IdExtra)
+    public function __construct($RoomNumber, $Image, $Description, $Price, $AmountPeople, $RoomAvailable, $IdExtra)
     {
         $this->RoomNumber = $RoomNumber;
         $this->Image = $Image;
         $this->Description = $Description;
         $this->Price = $Price;
         $this->AmountPeople = $AmountPeople;
+        $this->RoomAvailable = $RoomAvailable;
         $this->IdExtra = $IdExtra;
     }
 
@@ -43,6 +45,11 @@ class Room
     public function getAmountPeople()
     {
         return $this->AmountPeople;
+    }
+
+    public function getRoomAvailable()
+    {
+        return $this->RoomAvailable;
     }
 
     public function getIdExtra()

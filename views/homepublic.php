@@ -89,7 +89,8 @@
                                         <!-- Product name-->
                                         <h5 class="fw-bolder"><i class="bi bi-geo-alt"></i><?php echo $room['DESCRIPTIONS']; ?></h1>
                                             <!-- Product price-->
-                                            $<?php echo $room['PRICE']; ?>
+                                            <small><strong>$<?php echo $room['PRICE']; ?></strong></small><br>
+                                            <small>Habitaciones Disponibles <strong><?php echo $room['ROOMAVAILABLE']; ?></strong></small>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
@@ -141,7 +142,11 @@
                                 <label for="recipient-name" class="col-form-label">Apellidos:</label>
                                 <input type="text" class="form-control" id="recipient-name" name="lastname">
                             </div>
-            </div>
+                            <div class="col-sm-6">
+                                <label for="recipient-name" class="col-form-label">Habitaciones:</label>
+                                <input type="number" class="form-control"  id="recipient-name" name="lastname" min="1" max="5">
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -167,8 +172,10 @@
     <!-- Core theme JS-->
     <script src="../js/scripts.js"></script>
     <script>
-        function openModal(){
+        function openModal($room_number) {
             $("#ReserveForm").modal("show");
+
+            
         }
     </script>
 </body>

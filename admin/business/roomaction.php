@@ -16,7 +16,7 @@ switch ($option) {
 
             move_uploaded_file($tempRoute, "../images/" . $fileName);
 
-            insertRoom($fileName, $_POST['description'], $_POST['price'], $_POST['amountpeople'], $_POST['extras']);
+            insertRoom($fileName, $_POST['description'], $_POST['price'], $_POST['amountpeople'], $_POST['roomavailable'], $_POST['extras']);
         }
 
         break;
@@ -35,6 +35,7 @@ switch ($option) {
                 $_POST['description'],
                 $_POST['price'],
                 $_POST['amountpeople'],
+                $_POST['roomavailable'],
                 $_POST['extras']
             );
         } else {
@@ -46,6 +47,7 @@ switch ($option) {
                 $_POST['description'],
                 $_POST['price'],
                 $_POST['amountpeople'],
+                $_POST['roomavailable'],
                 $_POST['extras']
             );
         }
@@ -56,10 +58,10 @@ switch ($option) {
         break;
 }
 
-function insertRoom($image, $description, $price, $amountpeople, $idextras)
+function insertRoom($image, $description, $price, $amountpeople, $roomavailable, $idextras)
 {
 
-    $result = RoomBusiness::saveRoom(new Room(0, $image, $description, $price, $amountpeople, $idextras));
+    $result = RoomBusiness::saveRoom(new Room(0, $image, $description, $price, $amountpeople, $roomavailable, $idextras));
     if ($result) {
         $information['message'] = "inserted";
     } else {
@@ -69,9 +71,9 @@ function insertRoom($image, $description, $price, $amountpeople, $idextras)
     echo json_encode($information);
 }
 
-function editRoom($roomNumber, $image, $description, $price, $amountpeople, $idextras)
+function editRoom($roomNumber, $image, $description, $price, $amountpeople, $roomavailable, $idextras)
 {
-    $result = RoomBusiness::updateRoom(new Room($roomNumber, $image, $description, $price, $amountpeople, $idextras));
+    $result = RoomBusiness::updateRoom(new Room($roomNumber, $image, $description, $price, $amountpeople, $roomavailable, $idextras));
     if ($result) {
         $information['message'] = "updated";
     } else {
