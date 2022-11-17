@@ -80,12 +80,12 @@ var cancelarEliminar = function () {
 
 var limpiar_form = function () {
     $("#opc").val("insert");
-    $("#ReserveDateStart").val("");
-    $("#ReserveDateEnd").val("");
-    $("#Identification").val("");
-    $("#NameClient").val("");
-    $("#ReserveQuantity").val("");
-    $("#LastnameClient").val("");
+    $("#reserveDateStart").val("");
+    $("#reserveDateEnd").val("");
+    $("#identification").val("");
+    $("#nameClient").val("");
+    $("#reserveQuantity").val("");
+    $("#lastnameClient").val("");
 
 }
 
@@ -159,6 +159,7 @@ var obtener_data_editar = function (tbody, table) {
         var roomnumber = $("#roomnumber").val(data.ROOMNUMBER);
         var reserveDateStart = $("#reserveDateStart").val(data.RESERVEDATESTART);
         var reserveDateEnd = $("#reserveDateEnd").val(data.RESERVEDATEEND);
+        var identification = $("#identification").val(data.IDENTIFICATION);
         var nameClient = $("#nameClient").val(data.NAMECLIENT);
         var lastnameClient = $("#lastnameClient").val(data.LASTNAMECLIENT);
         var reserveQuantity = $("#reserveQuantity").val(data.RESERVEQUANTITY);
@@ -174,8 +175,8 @@ var obtener_id_eliminar = function (tbody, table) {
     $(tbody).on("click", "button.boton-eliminar", function () {
 
         var data = table.row($(this).parents("tr")).data();
-        var reserve_number = $("#formDelete #reservenumber").val(data.ROOMNUMBER);
-        console.log(data.ROOMNUMBER);
+        var reserve_number = $("#formDelete #reservenumber").val(data.RESERVENUMBER);
+        console.log(data.RESERVENUMBER);
 
     });
 }

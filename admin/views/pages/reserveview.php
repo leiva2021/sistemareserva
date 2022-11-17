@@ -281,7 +281,7 @@
 <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form id="frmhabitacion" method="POST" enctype="multipart/form-data">
+            <form id="formreserve" method="POST" enctype="multipart/form-data">
                 <div class="modal-header bg-secondary text-white">
                     <h5 class="modal-title" id="exampleModalLabel">Reservaci&oacute;n</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -292,36 +292,36 @@
                     <div class="row">
 
                         <input type="hidden" id="opc" name="opc" value="insert">
-                        <input type="hidden" id="roomnumber" name="roomnumber" value="">
+                        <input type="hidden" id="reservenumber" name="reservenumber" value="">
                         <input type="hidden" id="currentimg" name="currentimg" value="">
 
                         <div class="col-sm-6">
                                 <label for="extras"><strong>N&uacute;mero de habitaci&oacute;n</strong></label>
-                                <input type="number" id="identifycation" name="identifycation" class="form-control" readonly>
+                                <input type="number" id="roomnumber" name="roomnumber" class="form-control" readonly>
                         </div>
                         <div class="col-sm-6">
                             <label for="dateIni" class="form-label"><strong>Fecha de Inicio</strong></label>
-                            <input type="date" id="dateIni" name="dateIni" class="form-control">
+                            <input type="date" id="reserveDateStart" name="reserveDateStart" class="form-control">
                         </div>
                         <div class="col-sm-6">
                             <label for="dateFin" class="form-label"><strong>Fecha de Fin</strong></label>
-                            <input type="date" id="dateFin" name="dateFin" class="form-control">
+                            <input type="date" id="reserveDateEnd" name="reserveDateEnd" class="form-control">
                         </div>
                         <div class="col-sm-6">
-                            <label for="identifycation" class="form-label"><strong>Cedula</strong></label>
-                            <input type="number" id="identifycation" name="identifycation" class="form-control">
+                            <label for="identificatio" class="form-label"><strong>Cedula</strong></label>
+                            <input type="text" id="identification" name="identification" class="form-control" readonly>
                         </div>
                         <div class="col-sm-6">
                             <label for="name" class="form-label"><strong>Nombre</strong></label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            <input type="text" id="nameClient" name="nameClient" class="form-control">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="name" class="form-label"><strong>Apellidos</strong></label>
+                            <input type="text" id="lastnameClient" name="lastnameClient" class="form-control">
                         </div>
                         <div class="col-sm-6">
                             <label for="cantRoom" class="form-label"><strong>Cantidad de habitaciones</strong></label>
-                            <input type="number" id="cantRoom" name="cantRoom" class="form-control">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="dateReserva" class="form-label"><strong>Fecha de reservaci&oacute;n</strong></label>
-                            <input type="text" id="dateReserva" name="dateReserva" class="form-control">
+                            <input type="number" id="reserveQuantity" name="reserveQuantity" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -337,7 +337,7 @@
 
 <!-- Modal to delete room -->
 <div>
-    <form id="frmDelete" action="" method="POST">
+    <form id="formDelete" action="" method="POST">
 
         <input type="hidden" id="roomnumber" name="roomnumber" value="">
         <input type="hidden" id="opc" name="opc" value="delete">

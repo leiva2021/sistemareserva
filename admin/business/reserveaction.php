@@ -22,7 +22,7 @@ switch ($option) {
                 $_POST['identification'], 
                 $_POST['nameClient'], 
                 $_POST['lastnameClient'], 
-                $_PSOT['reserveQuantity']
+                $_POST['reserveQuantity']
             );
 
         break;
@@ -46,7 +46,7 @@ function insertReserve($roomNumber, $reserveDateStart, $reserveDateEnd, $identif
 
 function editReserve($reserveNumber, $reserveDateStart, $reserveDateEnd, $identification, $nameClient, $lastnameClient, $reserveQuantity)
 {
-    $result = ReserveBusiness::updateReserve(new Reserve($reserveNumber, $reserveDateStart, $reserveDateEnd, $identification, $nameClient, $lastnameClient, $reserveQuantity));
+    $result = ReserveBusiness::updateReserve(new Reserve($reserveNumber, 0,$reserveDateStart, $reserveDateEnd, $identification, $nameClient, $lastnameClient, $reserveQuantity));
     if ($result) {
         $information['message'] = "updated";
     } else {
