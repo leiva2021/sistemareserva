@@ -137,7 +137,7 @@
                         <h6 class="collapse-header">Gestionar:</h6>
 
                         <?php if (isset($_GET['type']) && $_GET['type'] == "page") { ?>
-                            <a class="collapse-item" href="login.html">Reservas</a>
+                            <a class="collapse-item" href="./reserveview.php?type=page&name=reserve">Reservas</a>
                             <a class="collapse-item" href="./commentsview.php?type=page&name=comment">Comentarios</a>
                             <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <?php } else { ?>

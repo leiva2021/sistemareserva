@@ -60,7 +60,7 @@
 
                     <h1>Area de trabajo</h1>
     
-                    <form action="./business/roomaction.php" method="POST">
+                    <form action="./business/roomlistaction.php" method="POST">
                         <button type="submit">Conectar</button>
                     </form>
 
