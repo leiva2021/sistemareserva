@@ -33,7 +33,7 @@
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        
+
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                             Logout
@@ -49,39 +49,59 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-            <button type="button" class="btn btn-success btn-icon-split mb-2 p-1" onclick="openModal()">
-            <span class="icon text-white-50">
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                        <span class="text">Agregar</span> 
-            </button>
+            <!--<button type="button" class="btn btn-success btn-icon-split mb-2 p-1" onclick="openModal()">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text">Agregar</span>
+            </button>-->
 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tabla de Extras</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Tabla de Comentarios</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="extraTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="commentTable" width="100%" cellspacing="0">
                             <thead class="bg-dark text-white">
                                 <tr>
-                                    <th><center>ID</center></th>
-                                    <th><center>Descripci&oacute;n</center></th>
-                                    <th><center>Acciones</center></th>
+                                    <th>
+                                        <center>ID</center>
+                                    </th>
+                                    <th>
+                                        <center>Usuario</center>
+                                    </th>
+                                    <th>
+                                        <center>Fecha</center>
+                                    </th>
+                                    <th>
+                                        <center>Mensaje</center>
+                                    </th>
+                                    <th>Acciones</th>
 
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th><center>ID</center></th>
-                                    <th><center>Descripci&oacute;n</center></th>
-                                    <th><center>Acciones</center></th>
+                                    <th>
+                                        <center>ID</center>
+                                    </th>
+                                    <th>
+                                        <center>Usuario</center>
+                                    </th>
+                                    <th>
+                                        <center>Fecha</center>
+                                    </th>
+                                    <th>
+                                        <center>Mensaje</center>
+                                    </th>
+                                    <th>Acciones</th>
 
                                 </tr>
                             </tfoot>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -146,13 +166,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    
-                        <input type="hidden" id="opc" name="opc" value="insert">
-                        <input type="hidden" id="idextra" name="idextra" value="0">                       
-                        <div>
-                            <label for="description" class="form-label"><strong>Descripci&oacute;n</strong></label>
-                            <textarea class="form-control" aria-label="With textarea" id="description" name="description"></textarea>
-                        </div>
+
+                    <input type="hidden" id="opc" name="opc" value="insert">
+                    <input type="hidden" id="idextra" name="idextra" value="0">
+                    <div>
+                        <label for="description" class="form-label"><strong>Descripci&oacute;n</strong></label>
+                        <textarea class="form-control" aria-label="With textarea" id="description" name="description"></textarea>
+                    </div>
 
                 </div>
                 <div class="modal-footer">

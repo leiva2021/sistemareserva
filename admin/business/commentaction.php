@@ -19,7 +19,7 @@ switch ($option) {
 function insertComment($identification, $message)
 {
 
-    $result = CommentBusiness::saveComment(new Comment(0, $identification, '18/11/2022', $message));
+    $result = CommentBusiness::saveComment(new Comment(0, $identification,date('d-m-Y'), $message));
     if ($result) {
         $information['message'] = "inserted";
     } else {

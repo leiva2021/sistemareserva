@@ -15,4 +15,8 @@ class CommentBusiness
     {
         return CommentData::saveComment($comment);
     }
+
+    public static function getListComments(){
+        return CommentData::getListComments();
+    }
 }
