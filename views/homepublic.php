@@ -225,7 +225,7 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
     <!-- Core theme JS-->
     <script src="../js/scripts.js"></script>
-    <!-- <script src="../js/comment.js"></script> -->
+    <script src="../js/comment.js"></script>
     <script src="../js/reserve.js"></script>
 </body>
 
