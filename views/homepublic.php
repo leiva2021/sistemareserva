@@ -140,42 +140,44 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-
-                        <input type="hidden" id="roomnumber" name="roomnumber" value="">
+                
+                    <form id='formreserve'>
+                        <input type="hidden" id="opc" name="opc" value="insert">
+                        <input type="hidden" id="roomNumber" name="roomNumber" value="<?php echo $room['ROOMNUMBER']; ?>">
 
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Fecha Inicio:</label>
-                                <input type="date" class="form-control" id="recipient-name" name="datestart">
+                                <input type="date" class="form-control" id="reserveDateStart" name="reserveDateStart">
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Fecha Fin:</label>
-                                <input type="date" class="form-control" id="recipient-name" name="dateend">
+                                <input type="date" class="form-control" id="reserveDateEnd" name="reserveDateEnd">
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">C&eacute;dula:</label>
-                                <input type="text" class="form-control" id="recipient-name" name="indentification">
+                                <input type="text" class="form-control" id="identification" name="identification">
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="recipient-name" name="clientname">
+                                <input type="text" class="form-control" id="nameClient" name="nameClient">
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Apellidos:</label>
-                                <input type="text" class="form-control" id="recipient-name" name="lastname">
+                                <input type="text" class="form-control" id="lastnameClient" name="lastnameClient">
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Habitaciones:</label>
-                                <input type="number" class="form-control" id="recipient-name" name="lastname" min="1" max="5">
+                                <input type="number" class="form-control" id="reserveQuantity" name="reserveQuantity" min="1" max="<?php echo $room['ROOMAVAILABLE']; ?>">
                             </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -224,6 +226,7 @@
     <!-- Core theme JS-->
     <script src="../js/scripts.js"></script>
     <script src="../js/comment.js"></script>
+    <script src="../js/reserve.js"></script>
 </body>
 
 </html>
