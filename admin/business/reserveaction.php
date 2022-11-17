@@ -8,7 +8,9 @@ $information = [];
 switch ($option) {
     case "insert":
 
-            insertReserve($_POST['roomNumber'], $_POST['reserveDateStart'], $_POST['reserveDateEnd'], $_POST['identification'], $_POST['nameClient'], $_POST['lastnameClient'], $_PSOT['reserveQuantity']);
+            insertReserve($_POST['roomNumber'], $_POST['reserveDateStart'], $_POST['reserveDateEnd'], 
+            $_POST['identification'], $_POST['nameClient'], $_POST['lastnameClient'], 
+            $_POST['reserveQuantity']);
 
         break;
     case "edit":

@@ -63,8 +63,3 @@ var saveComment = () => {
 }
 
 
-function openModal($room_number) {
-
-    var roomnumber = $("#roomnumber").val($room_number);
-    $("#ReserveForm").modal("show");
-}

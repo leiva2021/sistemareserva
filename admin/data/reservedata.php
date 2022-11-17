@@ -17,7 +17,7 @@ class ReserveData
         }
         $reserveNumber = $reserveNumber + 1;
 
-        $stid2 = oci_parse($connexion, "call INSERT_RESERVE($reserveNumber,'" . $reserve->getRoomNumber() . "','" .
+        $stid2 = oci_parse($connexion, "call INSERT_RESERVE( $reserveNumber ,'" . $reserve->getNumRoom() . "','" .
             $reserve->getReserveDateStart() . "','" . $reserve->getReserveDateEnd() . "','" . $reserve->getIdentification() .
             "','" . $reserve->getNameClient() . "','" . $reserve->getLastnameClient() . "','" . $reserve->getReserveQuantity() . "')");
 
