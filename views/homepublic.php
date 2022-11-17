@@ -27,7 +27,20 @@
             background-position: center center;
             background: url("https://marketingsimulator.net/maritzabarboza/wp-content/uploads/sites/349/2016/11/cropped-Centro-de-Puerto-Viejo-de-Limon-Costa-Rica.jpg") no-repeat center center fixed;
             background-size: cover;
+        }
 
+        #comment {
+            background-color: #323563;
+        }
+
+        #nav {
+            background-color: #1f1732;
+        }
+
+        .circular-square {
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
         }
     </style>
     <?php
@@ -37,25 +50,13 @@
 
 <body>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <nav class="navbar navbar-expand-lg" id="nav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!">Reservas</a>
+            <a class="navbar-brand text-white" href="#!">Reservas</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">All Products</a></li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                            <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                        </ul>
-                    </li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 text-white">
+                    <li class="nav-item"><a class="nav-link text-white" class="fw-bold" href="#!">Iniciar Sesi&oacute;n</a></li>
                 </ul>
             </div>
         </div>
@@ -95,7 +96,7 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><button class="btn btn-outline-dark mt-auto" onclick="openModal()">Reservar</button></div>
+                                    <div class="text-center"><button class="btn btn-outline-dark mt-auto" onclick="openModal(<?php echo $room['ROOMNUMBER']; ?> )">Reservar</button></div>
                                 </div>
                             </div>
                         </div>
@@ -104,15 +105,34 @@
 
             </div>
         </div>
-        <!-- aqui para bajo -->
-        <div>
-            <h1>Aqui vamos!!</h1>
+    </section>
+
+    <section class="p-4" id="comment">
+        <div class="container px-4 px-lg-5 mt-3 mb-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <button type="button" class="btn btn-success" onclick="openModalComment('402560896')"><i class="bi bi-chat-quote"></i> Comentar</button>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">
+
+                        <div id="content">
+
+                        </div>
+                        <!-- <img class="circular-square" src="https://xx.bstatic.com/static/img/review/avatars/ava-h.png" alt="" role="presentation"> -->
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
+
     <!-- seccion de modales -->
 
-    <div class="modal fade" id="ReserveForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class=" modal fade" id="ReserveForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-secondary">
@@ -121,6 +141,9 @@
                 </div>
                 <div class="modal-body">
                     <form>
+
+                        <input type="hidden" id="roomnumber" name="roomnumber" value="">
+
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Fecha Inicio:</label>
@@ -144,7 +167,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Habitaciones:</label>
-                                <input type="number" class="form-control"  id="recipient-name" name="lastname" min="1" max="5">
+                                <input type="number" class="form-control" id="recipient-name" name="lastname" min="1" max="5">
                             </div>
                         </div>
                     </form>
@@ -157,8 +180,36 @@
         </div>
     </div>
 
+    <!-- Modal comment -->
+    <!-- Modal -->
+    <div class="modal fade" id="ModalComment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="frmcomment" method="POST">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Comentarios</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="opc" name="opc" value="insert">
+                        <input type="hidden" id="userid" name="userid" value="">
 
 
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="txtcomment" name="txtcomment" style="height: 100px"></textarea>
+                                <label for="txtcomment">Escribe su comentario</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success">Enviar comentario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
@@ -169,15 +220,10 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
     <!-- Core theme JS-->
     <script src="../js/scripts.js"></script>
-    <script>
-        function openModal($room_number) {
-            $("#ReserveForm").modal("show");
-
-            
-        }
-    </script>
+    <script src="../js/comment.js"></script>
 </body>
 
 </html>

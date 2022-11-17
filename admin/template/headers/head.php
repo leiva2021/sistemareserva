@@ -135,9 +135,17 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Gestionar:</h6>
-                        <a class="collapse-item" href="login.html">Reservas</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+
+                        <?php if (isset($_GET['type']) && $_GET['type'] == "page") { ?>
+                            <a class="collapse-item" href="login.html">Reservas</a>
+                            <a class="collapse-item" href="./commentsview.php?type=page&name=comment">Comentarios</a>
+                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <?php } else { ?>
+                            <a class="collapse-item" href="login.html">Reservas</a>
+                            <a class="collapse-item" href="views/pages/commentsview.php?type=page&name=comment">Comentarios</a>
+                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+
+                        <?php } ?>
                     </div>
                 </div>
             </li>
