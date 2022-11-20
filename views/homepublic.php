@@ -147,7 +147,7 @@
                     <div class="modal-body">
 
 
-                        <input type="hidden" id="option" name="option" value="insert">
+                        <input type="hidden" id="opc" name="opc" value="insert">
                         <input type="hidden" id="roomNumber" name="roomNumber" value="">
 
                         <div class="row">

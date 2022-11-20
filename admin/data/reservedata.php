@@ -17,8 +17,8 @@ class ReserveData
         }
         $reserveNumber = $reserveNumber + 1;
 
-        $stid2 = oci_parse($connexion, "call INSERT_RESERVE($reserveNumber ,'" . $reserve->getNumRoom() . "','" .
-            $reserve->getReserveDateStart() . "','" . $reserve->getReserveDateEnd() . "','" . $reserve->getIdentification() .
+        $stid2 = oci_parse($connexion, "call INSERT_RESERVE($reserveNumber,'" . $reserve->getReserveNumber() . "','" .
+            $reserve->getreserveDateStart() . "','" . $reserve->getReserveDateEnd() . "','" . $reserve->getIdentification() .
             "','" . $reserve->getNameClient() . "','" . $reserve->getLastnameClient() . "','" . $reserve->getReserveQuantity() . "')");
 
         oci_execute($stid2);
@@ -97,8 +97,7 @@ class ReserveData
         $connexion = Data::createConnexion();
         $result = false;
         $reserve_number = $reserve->getReserveNumber();
-        $stid2 = oci_parse($connexion, "call UPDATE_RESERVE($reserve_number ,'". $reserve->getReserveDateStart() . "','" . $reserve->getReserveDateEnd() . "','" . $reserve->getIdentification() .
-        "','" . $reserve->getNameClient() . "','" . $reserve->getLastnameClient() . "','" . $reserve->getReserveQuantity() . "')");
+        $stid2 = oci_parse($connexion, "call UPDATE_RESERVE($reserve_number ,'" . $reserve->getReserveDateStart() . "','" . $reserve->getReserveDateEnd() . "','" . $reserve->getIdentification() . "','" . $reserve->getNameClient() . "','" . $reserve->getLastnameClient() . "','" . $reserve->getReserveQuantity() . "')");
 
         oci_execute($stid2);
         $e = oci_error($stid2);

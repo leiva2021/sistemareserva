@@ -25,14 +25,13 @@ var saveReserve = function () {
             data: frmdata,
             success: function (info) {
 
-                console.log(info);
-                /*var json_info = JSON.parse(info);
+                var json_info = JSON.parse(info);
                 console.log(info);
                 if (json_info.message === "inserted") {
                     console.log("agregado")
                 } else if (json_info.message === "error") {
                     console.log("error")
-                }*/
+                }
                 $("#ReserveForm").modal("hide");
             }
         });

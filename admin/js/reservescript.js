@@ -51,8 +51,11 @@ var guardar = function () {
 var eliminar = function () {
 
     $("#delete-reserve").on("click", function () {
-        var reserve_number = $("#formDelete #reservenumber").val(),
+        var reserve_number = $("#formDelete #roomnumber").val(),
             opc = $("#formDelete #opc").val();
+
+        console.log(reserve_number)
+        console.log(opc)
         $.ajax({
             method: "POST",
             url: "./../../business/reserveaction.php",
@@ -101,45 +104,45 @@ var listar = function () {
             dataType: "json"
         },
         "columns": [
-        {
-            "data": "ROOMNUMBER", "render": function (data) {
-                return '<center>' + data + '</center>';
+            {
+                "data": "ROOMNUMBER", "render": function (data) {
+                    return '<center>' + data + '</center>';
+                }
+            },
+            {
+                "data": "RESERVEDATESTART", "render": function (data) {
+                    return '<center>' + data + '</center>';
+                }
+            },
+            {
+                "data": "RESERVEDATEEND", "render": function (data) {
+                    return '<center>' + data + '</center>';
+                }
+            },
+            {
+                "data": "IDENTIFICATION", "render": function (data) {
+                    return '<center>' + data + '</center>';
+                }
+            },
+            {
+                "data": "NAMECLIENT", "render": function (data) {
+                    return '<center>' + data + '</center>';
+                }
+            },
+            {
+                "data": "LASTNAMECLIENT", "render": function (data) {
+                    return '<center>' + data + '</center>';
+                }
+            },
+            {
+                "data": "RESERVEQUANTITY", "render": function (data) {
+                    return '<center>' + data + '</center>';
+                }
+            },
+            {
+                "defaultContent": "<center><button class='btn btn-warning btn-sm btn-editar'><i class='fa fa fa-edit'></i></button>" +
+                    "&nbsp<button class='boton-eliminar btn btn-danger btn-sm ms-2' data-toggle='modal' data-target='#myModal'><i class='fa fa fa-trash'></i></button></center>",
             }
-        },
-        {
-            "data": "RESERVEDATESTART","render": function(data){
-                return '<center>'+data+'</center>';
-            }
-        },
-        {
-            "data": "RESERVEDATEEND","render": function(data){
-                return '<center>'+data+'</center>';
-            }
-        },
-        {
-            "data": "IDENTIFICATION","render": function(data){
-                return '<center>'+data+'</center>';
-            }
-        },
-        {
-            "data": "NAMECLIENT", "render": function(data){
-                return '<center>'+data+'</center>';
-            }
-        },
-        {
-            "data": "LASTNAMECLIENT","render": function(data){
-                return '<center>'+data+'</center>';
-            }
-        },
-        {
-            "data": "RESERVEQUANTITY","render": function(data){
-                return '<center>'+data+'</center>';
-            }
-        },
-        {
-            "defaultContent": "<center><button class='btn btn-warning btn-sm btn-editar'><i class='fa fa fa-edit'></i></button>" +
-                "&nbsp<button class='boton-eliminar btn btn-danger btn-sm ms-2' data-toggle='modal' data-target='#myModal'><i class='fa fa fa-trash'></i></button></center>",
-        }
         ],
         "language": {
             "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json"
@@ -175,7 +178,7 @@ var obtener_id_eliminar = function (tbody, table) {
     $(tbody).on("click", "button.boton-eliminar", function () {
 
         var data = table.row($(this).parents("tr")).data();
-        var reserve_number = $("#formDelete #reservenumber").val(data.RESERVENUMBER);
+        var reserve_number = $("#formDelete #roomnumber").val(data.RESERVENUMBER);
         console.log(data.RESERVENUMBER);
 
     });
