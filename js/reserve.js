@@ -15,22 +15,24 @@ function openModal(room_number, reserve_quantity) {
 var saveReserve = function () {
     $("#frmreserve").on("submit", function (e) {
         e.preventDefault();
-        var datas = $(this).serialize();
-        console.log(datas)
+        var frmdata = $(this).serialize();
+        console.log(frmdata)
 
         $.ajax({
 
             method: "POST",
             url: "../admin/business/reserveaction.php",
-            data: datas,
+            data: frmdata,
             success: function (info) {
-                var json_info = JSON.parse(info);
+
+                console.log(info);
+                /*var json_info = JSON.parse(info);
                 console.log(info);
                 if (json_info.message === "inserted") {
                     console.log("agregado")
                 } else if (json_info.message === "error") {
                     console.log("error")
-                }
+                }*/
                 $("#ReserveForm").modal("hide");
             }
         });

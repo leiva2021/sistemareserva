@@ -147,7 +147,7 @@
                     <div class="modal-body">
 
 
-                        <input type="hidden" id="opc" name="opc" value="insert">
+                        <input type="hidden" id="option" name="option" value="insert">
                         <input type="hidden" id="roomNumber" name="roomNumber" value="">
 
                         <div class="row">
@@ -198,7 +198,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" id="opc" name="opc" value="insert">
+                        <input type="hidden" id="opc" name="opc" value="insert_comment">
                         <input type="hidden" id="userid" name="userid" value="">
 
 

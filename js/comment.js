@@ -37,7 +37,7 @@ function openModalComment(idUser) {
 }
 
 var saveComment = () => {
-    $("form").on("submit", function (e) {
+    $("#frmcomment").on("submit", function (e) {
         e.preventDefault();
         var datas = $(this).serialize();
         console.log(datas)
