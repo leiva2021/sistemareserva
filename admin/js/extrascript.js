@@ -72,11 +72,11 @@ var cancelEdit = function () {
     });
 }
 
-var extable = $('#extraTable').DataTable();
+var extra_table = $('#extraTable').DataTable();
 var list = function () {
 
     $("#extraTable").empty();
-    table = $("#extraTable").DataTable({
+    extra_table = $("#extraTable").DataTable({
 
         "destroy": true,
         "ajax": {
@@ -105,8 +105,8 @@ var list = function () {
         }
 
     });
-    get_data_edit("#extraTable tbody", table);
-    get_id_delete("#extraTable tbody", table);
+    get_data_edit("#extraTable tbody", extra_table);
+    get_id_delete("#extraTable tbody", extra_table);
 }
 
 var get_data_edit = function (tbody, table) {

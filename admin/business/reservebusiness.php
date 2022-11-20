@@ -14,6 +14,10 @@ class ReserveBusiness
     {
         return ReserveData::getAllReserves();
     }
+    public static function getListReserves()
+    {
+        return ReserveData::getListReserves();
+    }
 
     public static function updateReserve($reserve)
     {

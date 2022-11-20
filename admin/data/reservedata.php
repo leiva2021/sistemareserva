@@ -17,9 +17,12 @@ class ReserveData
         }
         $reserveNumber = $reserveNumber + 1;
 
-        $stid2 = oci_parse($connexion, "call INSERT_RESERVE( $reserveNumber ,'" . $reserve->getNumRoom() . "','" .
+        $reserve_number_room = $reserve->getNumRoom();
+        $reserve_quantity = $reserve->getReserveQuantity();
+
+        $stid2 = oci_parse($connexion, "call INSERT_RESERVE($reserveNumber ,'" . $reserve_number_room . "','" .
             $reserve->getReserveDateStart() . "','" . $reserve->getReserveDateEnd() . "','" . $reserve->getIdentification() .
-            "','" . $reserve->getNameClient() . "','" . $reserve->getLastnameClient() . "','" . $reserve->getReserveQuantity() . "')");
+            "','" . $reserve->getNameClient() . "','" . $reserve->getLastnameClient() . "','" . $reserve_quantity . "')");
 
         oci_execute($stid2);
         $e = oci_error($stid2);
@@ -37,6 +40,38 @@ class ReserveData
     }
 
     public static function getAllReserves()
+    {
+
+        $json = array();
+        $connexion = Data::createConnexion();
+
+        $cursor = oci_new_cursor($connexion);
+        $stid = oci_parse($connexion, "begin LIST_RESERVE(:cursbv); end;");
+        oci_bind_by_name($stid, ":cursbv", $cursor, -1, OCI_B_CURSOR);
+        oci_execute($stid);
+        oci_execute($cursor);  // Ejecutar el REF CURSOR como un ide de sentencia normal
+
+        while (($row = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+            $extra[] = array(
+                "reserveNumber" => $row['RESERVENUMBER'],
+                "roomNumber" => $row['ROOMNUMBER'],
+                "reserveDateStart" => $row['RESERVEDATESTART'],
+                "reserveDateEnd" => $row['RESERVEDATEEND'],
+                "identification" => $row['IDENTIFICATION'],
+                "nameClient" => $row['NAMECLIENT'],
+                "lastnameClient" => $row['LASTNAMECLIENT'],
+                "reserveQuantity" => $row['RESERVEQUANTITY']
+            );
+        }
+
+        oci_free_statement($stid);
+        oci_free_statement($cursor);
+        oci_close($connexion);
+
+        return $json;
+    }
+
+    public static function getListReserves()
     {
 
         $json = array();

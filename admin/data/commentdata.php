@@ -36,6 +36,19 @@ class CommentData
 
     public static function deleteComment($idcomment)
     {
+        $connexion = Data::createConnexion();
+        $result = false;
+        $stid2 = oci_parse($connexion, "call DELETE_COMM($idcomment)");
+        oci_execute($stid2);
+        $e = oci_error($stid2);
+        if ($e) {
+            $result = false;
+        } else {
+            $result = true;
+        }
+
+        oci_close($connexion);
+        return $result;
     }
 
     public static function getAllComments()

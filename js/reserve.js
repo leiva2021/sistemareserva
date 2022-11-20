@@ -1,21 +1,23 @@
 
 $(document).ready(function () {
     saveReserve();
-    console.log("listoReservas");
+    clearModal();
 });
 
-function openModal($room_number) {
+function openModal(room_number, reserve_quantity) {
 
-    var roomnumber = $("#roomnumber").val($room_number);
+    var roomnumber = $("#roomNumber").val(room_number); //! se carga el numero de habitacion a reservar
+    var reserveQuantity = $("#reserveQuantity").prop('max', reserve_quantity); //! Se pasa la cantidad de habitaciones disponibles
+
     $("#ReserveForm").modal("show");
 }
 
-var saveReserve = () => {
-    $("#formreserve").on("submit", function (e) {
+var saveReserve = function () {
+    $("#frmreserve").on("submit", function (e) {
         e.preventDefault();
         var datas = $(this).serialize();
         console.log(datas)
-        console.log("llegoreservas")
+
         $.ajax({
 
             method: "POST",
@@ -23,7 +25,7 @@ var saveReserve = () => {
             data: datas,
             success: function (info) {
                 var json_info = JSON.parse(info);
-
+                console.log(info);
                 if (json_info.message === "inserted") {
                     console.log("agregado")
                 } else if (json_info.message === "error") {
@@ -32,5 +34,23 @@ var saveReserve = () => {
                 $("#ReserveForm").modal("hide");
             }
         });
+    });
+}
+
+var clearForm = function () {
+
+    $("#opc").val("insert");
+    $("#roomNumber").val("");
+    $("#didentification").val("");
+    $("#nameClient").val("");
+    $("#lastnameClient").val("");
+    $("#reserveQuantity").val("");
+}
+
+clearModal = function () {
+
+    $("#button-cancel").on("click", function () {
+        console.log("Limpiando...")
+        clearForm();
     });
 }

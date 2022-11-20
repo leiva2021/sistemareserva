@@ -11,7 +11,7 @@ class Reserve
     private $lastnameClient;
     private $reserveQuantity;
 
-    public function __construct($numRoom, $reserveNumber,$reserveDateStart, $reserveDateEnd, $identification, $nameClient, $lastnameClient, $reserveQuantity)
+    public function __construct($numRoom, $reserveNumber, $reserveDateStart, $reserveDateEnd, $identification, $nameClient, $lastnameClient, $reserveQuantity)
     {
         $this->numRoom = $numRoom;
         $this->reserveNumber = $reserveNumber;

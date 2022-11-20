@@ -87,7 +87,7 @@ class RoomData
 
         $connexion = Data::createConnexion();
         $result = false;
-        $stid2 = oci_parse($connexion, "call DELETE_ROOM($room_number)");
+        $stid2 = oci_parse($connexion, "call DELETE_COMM($room_number)");
         oci_execute($stid2);
         $e = oci_error($stid2);
         if ($e) {

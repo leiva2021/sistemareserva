@@ -12,6 +12,9 @@ switch ($option) {
             $_POST['identification'], $_POST['nameClient'], $_POST['lastnameClient'], 
             $_POST['reserveQuantity']);
 
+            /*echo $_POST['roomNumber']."-".$_POST['reserveDateStart']."-".$_POST['reserveDateEnd']."-".$_POST['identification']."-".$_POST['nameClient'].
+            "-".$_POST['lastnameClient']."-".$_POST['reserveQuantity'];*/
+
         break;
     case "edit":
 
@@ -24,6 +27,8 @@ switch ($option) {
                 $_POST['lastnameClient'], 
                 $_POST['reserveQuantity']
             );
+
+        
 
         break;
     case "delete":

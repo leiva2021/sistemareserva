@@ -2,7 +2,7 @@
 $(document).ready(function () {
     list();
     //save();
-   // deleteExtra();
+    deleteExtra();
    // cancelEdit();
 });
 
@@ -36,18 +36,20 @@ var save = function () {
     });
 }*/
 
-/*var deleteExtra = function () {
+var deleteExtra = function () {
 
     $("#delete-extra").on("click", function () {
 
-        var idextra = $("#frmDelete #idextra").val(),
+        var idcomment = $("#frmDelete #idcomment").val(),
             opc = $("#frmDelete #opc").val();
+
+        console.log(idcomment);
 
         $.ajax({
             method: "POST",
-            url: "./../../business/extraaction.php",
+            url: "./../../business/commentaction.php",
             data: {
-                "idextra": idextra,
+                "idcomment": idcomment,
                 "opc": opc
             }
 
@@ -58,7 +60,7 @@ var save = function () {
         });
 
     });
-}*/
+}
 
 /*var clearForm = function () {
     $("#opc").val("insert");
@@ -99,8 +101,8 @@ var list = function () {
         },
 
         {
-            "defaultContent": "<center><button class='btn btn-warning btn-sm btn-edit'><i class='fa fa fa-edit'></i></button>" +
-                "&nbsp<button class='button-delete btn btn-danger btn-sm ms-2' data-toggle='modal' data-target='#myModal'><i class='fa fa fa-trash'></i></button></center>",
+            "defaultContent": "<center>" +
+                "<button class='button-delete btn btn-danger btn-sm ms-2' data-toggle='modal' data-target='#myModal'><i class='fa fa fa-trash'></i></button></center>",
         }
         ],
         "language": {
@@ -109,25 +111,15 @@ var list = function () {
 
     });
    // get_data_edit("#extraTable tbody", table);
-   // get_id_delete("#extraTable tbody", table);
+    get_id_delete("#commentTable tbody",comment_table);
 }
 
-/*var get_data_edit = function (tbody, table) {
-    $(tbody).on("click", "button.btn-edit", function (e) {
-
-        var data = table.row($(this).parents("tr")).data();
-        var idextra = $("#idextra").val(data.IDEXTRA);
-        var description = $("#description").val(data.DESCRIPTIONS);
-        var opc = $("#opc").val("edit");
-
-        $("#FormModalExtra").modal("show");
-
-    });
-}
 
 var get_id_delete = function (tbody, table) {
     $(tbody).on("click", "button.button-delete", function () {
         var data = table.row($(this).parents("tr")).data();
-        var room_number = $("#frmDelete #idextra").val(data.IDEXTRA);
+
+        var idcomment = $("#frmDelete #idcomment").val(data.IDCOMMENT);
+        console.log(idcomment);
     });
-}*/
+}

@@ -16,6 +16,10 @@ class CommentBusiness
         return CommentData::saveComment($comment);
     }
 
+    public static function deleteComment($idcomment){
+        return CommentData::deleteComment($idcomment);
+    }
+
     public static function getListComments(){
         return CommentData::getListComments();
     }

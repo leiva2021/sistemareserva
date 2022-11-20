@@ -189,19 +189,19 @@
 <div>
     <form id="frmDelete" action="" method="POST">
 
-        <input type="hidden" id="idextra" name="idextra" value="">
+        <input type="hidden" id="idcomment" name="idcomment" value="">
         <input type="hidden" id="opc" name="opc" value="delete">
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-secondary text-white">
-                        <h5 class="modal-title" id="exampleModalLabel">Extra</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Comentario</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body"><strong class="text-dark">¿Desea eliminar la extra?</strong></div>
+                    <div class="modal-body"><strong class="text-dark">¿Desea eliminar el comentario?</strong></div>
                     <div class="modal-footer">
                         <button class="btn btn-danger" id="delete-extra" type="button" data-dismiss="modal">Sí,Eliminar</button>
                         <a class="btn btn-primary" data-dismiss="modal">Salir</a>
