@@ -1,51 +1,45 @@
 
 $(document).ready(function () {
-    createAccount();
+    sendeCredentials();
 });
 
-var createAccount = () => {
+var sendeCredentials = () => {
 
     $("form").on("submit", function (e) {
         e.preventDefault();
 
         var datas = $(this).serialize();
-        console.log(datas);
+
 
         $.ajax({
 
             method: "POST",
-            url: "./../../business/useraction.php",
+            url: "./business/useraction.php",
             data: datas,
             success: function (info) {
 
                 var json_info = JSON.parse(info);
 
-                if (json_info.message === "inserted") {
+                if (json_info.message === "error") {
 
-                    showMessages("¡Cuenta creada exitosamente!");
+                    showMessages("¡Los datos son incorrectos!");
                     clearFormRegister();
 
-                } else if (json_info.message === "error") {
+                } else if (json_info.message === "empty") {
 
-                    showMessages("¡Error al crear la cuenta!");
-                    clearFormRegister();
-
-                } else if (json_info.message === "pwerror") {
-
-                    showMessages("¡Las contraseñas no son iguales!");
+                    showMessages("¡Campos vacios!");
                     clearFormRegister();
                 }
             }
         });
-
     });
-};
+}
 
 var showMessages = (message) => {
 
     Toastify({
         text: message,
-        duration: 1950,
+        duration: 2000,
         className: "info",
         position: "center",
         style: {
@@ -55,11 +49,6 @@ var showMessages = (message) => {
 };
 
 var clearFormRegister = () => {
-
-    $("#identification").val("");
-    $("#nameuser").val("");
-    $("#lastname").val("");
     $("#username").val("");
     $("#password").val("");
-    $("#cpassword").val("");
 };

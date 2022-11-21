@@ -13,14 +13,13 @@
 
     <!-- Custom fonts for this template-->
     <link href="../resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- Custom styles for this template-->
-    <!--<link href="../resources/css/sb-admin-2.min.css" rel="stylesheet">-->
     <link href="../resources/css/sb-admin-2.css" rel="stylesheet">
-
 
 </head>
 
@@ -43,33 +42,17 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4"><strong>¡Bienvenido!</strong></h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" method="POST">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Ingrese su usuario...">
+                                            <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Ingrese su usuario..." required autocomplete="off">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Ingrese su contraseña">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Ingrese su contraseña" required autocomplete="off">
                                         </div>
-                                        <!--<div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>-->
-                                        <a href="home.php" class="btn btn-primary btn-user btn-block">
+                                        <input type="hidden" id="opc" name="opc" value="login">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Acceder
-                                        </a>
-                                        <!-- <hr> -->
-                                        <!--<a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>-->
+                                        </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -94,14 +77,16 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../resources/vendor/jquery/jquery.min.js"></script>
+    <script src="../resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../resources/js/sb-admin-2.min.js"></script>
+
+    <script src="./js/loginscript.js"></script>
 
 </body>
 

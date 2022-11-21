@@ -8,7 +8,19 @@ $information = [];
 
 switch ($option) {
     case 'create':
-        inserUser($_POST['identification'], $_POST['nameuser'], $_POST['lastname'], $_POST['username'], $_POST['password'], $_POST['cpassword'], 'Client');
+        inserUser(
+            $_POST['identification'],
+            $_POST['nameuser'],
+            $_POST['lastname'],
+            $_POST['username'],
+            $_POST['password'],
+            $_POST['cpassword'],
+            'Client'
+        );
+        break;
+
+    case 'login':
+        validateCredentials($_POST['username'], $_POST['password']);
         break;
 
     default:
@@ -29,9 +41,26 @@ function inserUser($identification, $nameuser, $lastname, $username, $password, 
             $information['message'] = "error";
         }
         echo json_encode($information);
-    }else{
+    } else {
         $information['message'] = "pwerror";
         echo json_encode($information);
     }
+}
 
+function validateCredentials($username, $password)
+{
+    if (isset($username) && isset($password)) {
+
+        if (!empty($username) && !empty($password)) {
+
+            $result = UserBusiness::validateCredentials($username, $password);
+            if (strcmp($result, "error") == 0) {
+                $information['message'] = $result;
+                echo json_encode($information);
+            }
+        }else{
+            $information['message'] = "empty";
+            echo json_encode($information);
+        }
+    }
 }
