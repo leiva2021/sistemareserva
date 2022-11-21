@@ -54,11 +54,11 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg" id="nav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand text-white" href="#!">Reservas</a>
+            <a class="navbar-brand text-white" href="#"><strong>Reservas</strong></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 text-white">
-                    <li class="nav-item"><a class="nav-link text-white" class="fw-bold" href="../admin/index.php">Iniciar Sesi&oacute;n</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" class="fw-bold" href="../admin/index.php"><strong>Iniciar Sesi&oacute;n</strong></a></li>
                 </ul>
             </div>
         </div>
@@ -153,32 +153,32 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Fecha Inicio:</label>
-                                <input type="date" class="form-control" id="reserveDateStart" name="reserveDateStart">
+                                <input type="date" class="form-control" id="reserveDateStart" name="reserveDateStart" required>
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Fecha Fin:</label>
-                                <input type="date" class="form-control" id="reserveDateEnd" name="reserveDateEnd">
+                                <input type="date" class="form-control" id="reserveDateEnd" name="reserveDateEnd" required>
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">C&eacute;dula:</label>
-                                <input type="text" class="form-control" id="identification" name="identification" >
+                                <input type="text" class="form-control" id="identification" name="identification" required autocomplete="off">
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="nameClient" name="nameClient" autocomplete="off">
+                                <input type="text" class="form-control" id="nameClient" name="nameClient" required autocomplete="off">
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Apellidos:</label>
-                                <input type="text" class="form-control" id="lastnameClient" name="lastnameClient" autocomplete="off">
+                                <input type="text" class="form-control" id="lastnameClient" name="lastnameClient" required autocomplete="off">
                             </div>
                             <div class="col-sm-6">
                                 <label for="recipient-name" class="col-form-label">Habitaciones:</label>
-                                <input type="number" class="form-control" id="reserveQuantity" name="reserveQuantity" min="1" max="1">
+                                <input type="number" class="form-control" id="reserveQuantity" name="reserveQuantity" min="1" max="1" required>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" id="button-cancel" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar Reserva</button>
+                            <button type="submit" class="btn btn-success">Guardar Reserva</button>
                         </div>
                     </div>
                 </form>
