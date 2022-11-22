@@ -9,7 +9,6 @@ class LoginData
     {
 
         $connexion = Data::createConnexion();
-        $result = "";
 
         $stid = oci_parse($connexion, "select Password, Role, Identification from Users where Username='" . $username . "'");
         oci_execute($stid);
@@ -21,7 +20,15 @@ class LoginData
         $role = $row['ROLE'];
         $identification = $row['IDENTIFICATION'];
 
-        if (strcmp($pass, $password) == 0) {
+        $array = array(
+
+            "user" => $user,
+            "password" => $pass,
+            "role" => $role,
+            "identification" => $identification
+        );
+
+        /*if (strcmp($pass, $password) == 0) {
 
             session_start();
             $_SESSION["identification"] = $identification;
@@ -37,8 +44,8 @@ class LoginData
             }
         } else {
             $result = "error";
-        }
+        }*/
 
-        return $result;
+        return $array;
     }
 }

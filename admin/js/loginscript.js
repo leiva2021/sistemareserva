@@ -29,7 +29,11 @@ var sendeCredentials = () => {
 
                     showMessages("¡Campos vacios!");
                     clearFormRegister();
+                }else if(json_info.message === "dataincorrect"){
+                    showMessages("¡Los datos son incorrectos!");
+                    clearFormRegister();
                 }
+                
             }
         });
     });

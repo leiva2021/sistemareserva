@@ -54,11 +54,23 @@ function validateCredentials($username, $password)
         if (!empty($username) && !empty($password)) {
 
             $result = UserBusiness::validateCredentials($username, $password);
-            if (strcmp($result, "error") == 0) {
-                $information['message'] = $result;
-                echo json_encode($information);
-            }
-        }else{
+
+                if ($result["password"] == $password) {
+                    session_start();
+                    if ($result["role"] == "Client") {
+
+                        $_SESSION["user"] = $result["user"];
+                        header("Location: homepublic.php");
+
+                    }else if($result["role"] == "Admin"){
+                        $_SESSION["user"] = $result["user"];
+                        header("Location: home.php");
+                    }
+                }else{
+                    $information['message'] = "dataincorrect";
+                    echo json_encode($information);
+                }
+        } else {
             $information['message'] = "empty";
             echo json_encode($information);
         }
