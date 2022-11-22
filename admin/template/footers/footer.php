@@ -1,4 +1,5 @@
     <?php if (isset($_GET['type']) && $_GET['type'] == "page" && isset($_GET['name']) && $_GET['name'] == "room") { ?>
+    <!-- Se puede separa,pero por custiones de tiempo se deja asi -->
         <!-- Bootstrap core JavaScript-->
         <script src="../../../resources/vendor/jquery/jquery.min.js"></script>
         <script src="../../../resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -15,6 +16,9 @@
         <!-- Page level plugins -->
         <script src="../../../resources/vendor/datatables/jquery.dataTables.min.js"></script>
         <script src="../../../resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <script type="text/JavaScript" src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <script src="../../js/roomscript.js"></script>
 
@@ -37,6 +41,9 @@
         <!-- Page level plugins -->
         <script src="../../../resources/vendor/datatables/jquery.dataTables.min.js"></script>
         <script src="../../../resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <script type="text/JavaScript" src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <script src="../../js/extrascript.js"></script>
 

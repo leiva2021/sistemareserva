@@ -19,9 +19,6 @@ var guardar = function () {
         var datos = new FormData($("#frmhabitacion")[0]);
         console.log(datos);
 
-        //var file_data = $('#image')[0].files;
-        /*var frm = $(this).serialize()+"&image="+file_data[0].name;*/
-
         $.ajax({
 
             type: "POST",
@@ -31,21 +28,49 @@ var guardar = function () {
             processData: false,
 
             success: function (info) {
+
+                $(".modal-body").LoadingOverlay("hide");
+
                 var json_info = JSON.parse(info);
 
                 console.log(json_info);
 
                 if (json_info.message === "inserted") {
+
+                    swal("Bien!", "Agregado exitosamente!", "success");
                     console.log("agregado")
+
                 } else if (json_info.message === "updated") {
+
                     console.log("actualizado")
+                    swal("Bien!", "Actualizado correctamente!", "success");
+
+                } else if (json_info.message === "error") {
+
+                    console.log("error")
+                    swal("Ups!", "Error al eliminar!", "error");
                 }
+
                 $("#FormModal").modal("hide");
                 limpiar_form();
                 listar();
+            }, error: function (error) {
+
+                $(".modal-body").LoadingOverlay("hide");
+                console.log(error);
+            }
+            , beforeSend: function () {
+
+                $(".modal-body").LoadingOverlay("show", {
+                    imageResizeFactor: 2,
+                    text: "Cargando...",
+                    size: 14
+                })
             }
 
         });
+
+        $("#FormModal").modal("hide");
     });
 }
 
@@ -66,7 +91,9 @@ var eliminar = function () {
             var json_info = JSON.parse(info);
             console.log(json_info);
             limpiar_form();
+            swal("Bien!", "Eliminado correctamente!", "success");
             listar();
+
         });
 
     });
@@ -85,7 +112,6 @@ var cargarSelect = function () {
         dataType: "json",
     }).done(function (data) {
 
-        //console.log(data);
         var select = $("#extras").select();
         $.each(data, function (i, item) {
 
@@ -135,18 +161,18 @@ var listar = function () {
             "data": "DESCRIPTIONS"
         },
         {
-            "data": "PRICE","render": function(data){
-                return '<center>'+data+'</center>';
+            "data": "PRICE", "render": function (data) {
+                return '<center>' + data + '</center>';
             }
         },
         {
-            "data": "AMOUNTPEOPLE","render": function(data){
-                return '<center>'+data+'</center>';
+            "data": "AMOUNTPEOPLE", "render": function (data) {
+                return '<center>' + data + '</center>';
             }
         },
         {
-            "data": "ROOMAVAILABLE", "render": function(data){
-                return '<center>'+data+'</center>';
+            "data": "ROOMAVAILABLE", "render": function (data) {
+                return '<center>' + data + '</center>';
             }
         },
         {
@@ -172,8 +198,6 @@ var obtener_data_editar = function (tbody, table) {
         e.preventDefault();
         var data = table.row($(this).parents("tr")).data();
         var roomnumber = $("#roomnumber").val(data.ROOMNUMBER);
-        //var image = $("#img").val(data.IMAGE);
-        //var image = $("#img").attr("src","../../images/"+data.IMAGE);
         var currentimg = $("#currentimg").val(data.IMAGE);
         var description = $("#description").val(data.DESCRIPTIONS);
         var price = $("#price").val(data.PRICE);

@@ -151,7 +151,7 @@
                         <input type="hidden" id="idextra" name="idextra" value="0">                       
                         <div>
                             <label for="description" class="form-label"><strong>Descripci&oacute;n</strong></label>
-                            <textarea class="form-control" aria-label="With textarea" id="description" name="description"></textarea>
+                            <textarea class="form-control" aria-label="With textarea" id="description" name="description" required></textarea>
                         </div>
 
                 </div>

@@ -21,18 +21,40 @@ var save = function () {
             url: "./../../business/extraaction.php",
             data: frm,
             success: function (info) {
+
+                $(".modal-body").LoadingOverlay("hide");
                 var json_info = JSON.parse(info);
 
                 if (json_info.message === "inserted") {
                     console.log("agregado")
+                    swal("Bien!", "Agregado exitosamente!", "success");
+
                 } else if (json_info.message === "updated") {
                     console.log("actualizado")
+                    swal("Bien!", "Actualizado correctamente!", "success");
+
+                } else if (json_info.message === "error") {
+                    swal("Ups!", "Error al eliminar!", "error");
+                    console.log("error")
                 }
-                $("#FormModalExtra").modal("hide");
                 clearForm();
+                $("#FormModalExtra").modal("hide");
                 list();
+            }, error: function (error) {
+
+                $(".modal-body").LoadingOverlay("hide");
+                console.log(error);
+
+            }, beforeSend: function () {
+
+                $(".modal-body").LoadingOverlay("show", {
+                    imageResizeFactor: 2,
+                    text: "Cargando...",
+                    size: 14
+                })
             }
         });
+        $("#FormModalExtra").modal("hide");
     });
 }
 
@@ -54,6 +76,7 @@ var deleteExtra = function () {
         }).done(function (info) {
             var json_info = JSON.parse(info);
             console.log(json_info);
+            swal("Bien!", "Eliminado correctamente!", "success");
             list();
         });
 
@@ -85,13 +108,13 @@ var list = function () {
             dataType: "json"
         },
         "columns": [{
-            "data": "IDEXTRA","render": function(data){
-                return '<center>'+data+'</center>';
+            "data": "IDEXTRA", "render": function (data) {
+                return '<center>' + data + '</center>';
             }
         },
         {
-            "data": "DESCRIPTIONS","render": function(data){
-                return '<center>'+data+'</center>';
+            "data": "DESCRIPTIONS", "render": function (data) {
+                return '<center>' + data + '</center>';
             }
         },
 

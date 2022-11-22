@@ -21,9 +21,6 @@
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
-
-        
-
                 <div class="topbar-divider d-none d-sm-block"></div>
 
                 <!-- Nav Item - User Information -->
@@ -49,9 +46,6 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-            <!-- Page Heading -->
-            <!--<h1 class="h3 mb-4 text-gray-800">Registro de habitaciones</h1>-->
 
             <!-- Page Heading -->
             <!--<h1 class="h3 mb-2 text-gray-800">Tables</h1>-->
@@ -206,34 +200,34 @@
                             <!--<input type="file" id="image" accept="image/*" name="image" class="form-control-file>-->
                             <label for="image" class="form-label"><strong>Imagen</strong></label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" lang="es">
+                                <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" lang="es" >
                                 <label class="custom-file-label" for="image">Seleccione</label>
                             </div>
 
                         </div>
                         <div class="col-sm-6">
                             <label for="description" class="form-label"><strong>Descripci&oacute;n</strong></label>
-                            <textarea class="form-control" aria-label="With textarea" id="description" name="description"></textarea>
+                            <textarea class="form-control" aria-label="With textarea" id="description" name="description" required></textarea>
                         </div>
                         <div class="col-sm-6">
                             <label for="price" class="form-label"><strong>Precio</strong></label>
-                            <input type="number" id="price" name="price" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                            <input type="number" id="price" name="price" class="form-control" required>
                         </div>
                         <div class="col-sm-6">
                             <label for="amountpeople" class="form-label"><strong>Cantidad Personas</strong></label>
-                            <input type="number" id="amountpeople" name="amountpeople" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                            <input type="number" id="amountpeople" name="amountpeople" class="form-control" required>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="extras"><strong>Extras</strong></label>
-                                <select class="form-control" id="extras" name="extras">
+                                <select class="form-control" id="extras" name="extras" required>
 
                                 </select>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <label for="price" class="form-label"><strong>Habitaciones Disponibles:</strong></label>
-                            <input type="number" id="roomavailable" name="roomavailable" class="form-control">
+                            <input type="number" id="roomavailable" name="roomavailable" class="form-control" required>
                         </div>
                     </div>
                 </div>
