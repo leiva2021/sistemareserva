@@ -3,6 +3,7 @@
 include_once "./userbusiness.php";
 include_once "../domain/user.php";
 
+
 $option = $_POST['opc'];
 $information = [];
 
@@ -54,13 +55,15 @@ function validateCredentials($username, $password)
         if (!empty($username) && !empty($password)) {
 
             $result = UserBusiness::validateCredentials($username, $password);
-
+            
                 if ($result["password"] == $password) {
                     session_start();
                     if ($result["role"] == "Client") {
 
+                        $_SESSION["name"] = $result["name"];
+                        $_SESSION["identification"] = $result["identification"];
                         $_SESSION["user"] = $result["user"];
-                        header("Location: homepublic.php");
+                        header("Location: ../../views/homepublic.php");
 
                     }else if($result["role"] == "Admin"){
                         $_SESSION["user"] = $result["user"];

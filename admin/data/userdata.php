@@ -34,4 +34,32 @@ class UserData
 
         return $result;
     }
+
+
+    // public static function getUser($user)
+    // {
+
+    //     $connexion = Data::createConnexion();
+    //     $result = false;
+
+        
+    //     $cursor = oci_new_cursor($connexion);
+    //     $stid = oci_parse($connexion, "begin GET_USER($user,:cursbv); end;");
+    //     oci_bind_by_name($stid, ":cursbv", $cursor, -1, OCI_B_CURSOR);
+    //     oci_execute($stid);
+    //     oci_execute($cursor);
+
+    //     while (($row = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+    //         $user[] = array(
+    //             "nameuser" => $row['NameUser'],
+    //             "iduser" => $row['Identification'],
+    //         );
+    //     }
+
+    //     oci_free_statement($stid);
+    //     oci_free_statement($cursor);
+    //     oci_close($connexion);
+
+    //     return $user;
+    // }
 }

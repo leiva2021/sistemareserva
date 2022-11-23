@@ -1,3 +1,8 @@
+<?php
+
+//datos variable sesion
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,7 +98,7 @@
                                         <h5 class="fw-bolder"><i class="bi bi-geo-alt"></i><?php echo $room['DESCRIPTIONS']; ?></h1>
                                             <!-- Product price-->
                                             <small><strong>$<?php echo $room['PRICE']; ?></strong></small><br>
-                                            <small>Habitaciones Disponibles <strong><?php echo $room['ROOMAVAILABLE']; ?></strong></small>
+                                            <small>Habitaciones Disponibles <strong><?php echo $room['ROOMAVAILABLE'] , $_SESSION["name"]; ?></strong></small>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
