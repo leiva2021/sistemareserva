@@ -7,7 +7,7 @@ $option = $_POST['opc'];
 $information = [];
 
 switch ($option) {
-    case 'insert':
+    case 'insert_comment':
         insertComment($_POST['userid'], $_POST['txtcomment']);
         break;
 
@@ -29,7 +29,6 @@ function insertComment($identification, $message)
     } else {
         $information['message'] = "error";
     }
-
     echo json_encode($information);
 }
 

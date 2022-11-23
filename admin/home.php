@@ -39,7 +39,7 @@
                                 
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    SALIR
                                 </a>
                             </div>
                         </li>
@@ -50,7 +50,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" id="content">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -58,11 +58,9 @@
 
                     </div>
 
-                    <h1>Area de trabajo</h1>
-    
-                    <form action="./business/roomlistaction.php" method="POST">
-                        <button type="submit">Conectar</button>
-                    </form>
+                    <div id="info">
+                        <h1>Proyecto II Administraci&oacute;n de Base de Datos</h1>
+                    </div>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -97,7 +95,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Listo para salir?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -105,7 +103,7 @@
                 <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual..</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="index.php">Cerrar</a>
+                    <a class="btn btn-primary" href="index.php">Cerrar Sesi&oacute;n</a>
                 </div>
             </div>
         </div>

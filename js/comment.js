@@ -31,6 +31,7 @@ var loadComment = function () {
 }
 
 function openModalComment(idUser) {
+
     var idUser = $("#userid").val(idUser);
 
     $("#ModalComment").modal("show");
@@ -40,7 +41,6 @@ var saveComment = () => {
     $("#frmcomment").on("submit", function (e) {
         e.preventDefault();
         var datas = $(this).serialize();
-        console.log(datas)
 
         $.ajax({
 
@@ -52,11 +52,23 @@ var saveComment = () => {
 
                 if (json_info.message === "inserted") {
                     console.log("agregado")
+                    
+                    Toastify({
+                        text: "Comentario enviado!!",
+                        duration: 1950,
+                        className: "info",
+                        position: "center",
+                        style: {
+                            background: "linear-gradient(to right, #00b09b, #96c93d)",
+                        }
+                    }).showToast();
+
+                    loadComment();
+
                 } else if (json_info.message === "error") {
                     console.log("error")
                 }
                 $("#ModalComment").modal("hide");
-
             }
         });
     });

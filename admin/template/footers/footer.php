@@ -1,5 +1,5 @@
     <?php if (isset($_GET['type']) && $_GET['type'] == "page" && isset($_GET['name']) && $_GET['name'] == "room") { ?>
-    <!-- Se puede separa,pero por custiones de tiempo se deja asi -->
+        <!-- Se puede separa,pero por custiones de tiempo se deja asi -->
         <!-- Bootstrap core JavaScript-->
         <script src="../../../resources/vendor/jquery/jquery.min.js"></script>
         <script src="../../../resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -66,6 +66,9 @@
         <!-- Page level plugins -->
         <script src="../../../resources/vendor/datatables/jquery.dataTables.min.js"></script>
         <script src="../../../resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
 
         <script src="../../js/commentscript.js"></script>
 

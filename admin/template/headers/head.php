@@ -15,6 +15,8 @@
 
     <title>Sistema Reserva</title>
 
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🏨</text></svg>">
+
     <!-- Custom fonts for this template-->
     <?php if (isset($_GET['type']) && $_GET['type'] == "page" && isset($_GET['name']) && $_GET['name'] == "room") { ?>
 
@@ -66,6 +68,15 @@
     <!-- Custom styles for this template-->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <style>
+        #info{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+        }
+    </style>
 
 </head>
 

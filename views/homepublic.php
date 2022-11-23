@@ -97,14 +97,18 @@ session_start();
                                         <h5 class="fw-bolder"><i class="bi bi-geo-alt"></i><?php echo $room['DESCRIPTIONS']; ?></h1>
                                             <!-- Product price-->
                                             <small><strong>$<?php echo $room['PRICE']; ?></strong></small><br>
-                                            <small>Habitaciones Disponibles <strong><?php echo $room['ROOMAVAILABLE'], $_SESSION["name"]; ?></strong></small>
+                                            <small>Habitaciones Disponibles <strong><?php echo $room['ROOMAVAILABLE'] ?></strong></small>
                                     </div>
+
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                     <div class="text-center"><button type="button" class="btn btn-outline-dark mt-auto" onclick="openModal(
+                                        
                                         <?php echo $room['ROOMNUMBER']; ?>,
-                                        <?php echo $room['ROOMAVAILABLE']; ?> )">Reservar</button></div>
+                                        <?php echo $room['ROOMAVAILABLE']; ?>
+                                        
+                                        )">Reservar</button></div>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +124,7 @@ session_start();
 
             <div class="card">
                 <div class="card-header">
-                    <button type="button" class="btn btn-success" onclick="openModalComment('402560896')"><i class="bi bi-chat-quote"></i> Comentar</button>
+                    <button type="button" class="btn btn-success" onclick="openModalComment(<?php echo $_SESSION['identification']; ?>)"><i class="bi bi-chat-quote"></i> Comentar</button>
                 </div>
                 <div class="card-body">
                     <div class="card-title">
@@ -128,7 +132,6 @@ session_start();
                         <div id="content">
 
                         </div>
-                        <!-- <img class="circular-square" src="https://xx.bstatic.com/static/img/review/avatars/ava-h.png" alt="" role="presentation"> -->
                     </div>
                 </div>
             </div>
@@ -144,7 +147,7 @@ session_start();
         <div class="modal-dialog">
             <div class="modal-content">
                 <form id="frmreserve" action="" method="POST">
-                    <div class="modal-header bg-secondary">
+                    <div class="modal-header bg-primary">
                         <h5 class="modal-title" id="exampleModalLabel">Reserva su habitaci&oacute;n</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -232,6 +235,13 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <!-- Core theme JS-->
     <script src="../js/reserve.js"></script>
     <script src="../js/comment.js"></script>

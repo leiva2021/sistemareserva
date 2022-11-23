@@ -67,6 +67,7 @@ function validateCredentials($username, $password)
         } else if ($result["role"] == "Admin") {
 
             $_SESSION["name"] = $result["name"];
+            $_SESSION["role"] = "Admin";
             header("Location: ../home.php");
         }
     } else {

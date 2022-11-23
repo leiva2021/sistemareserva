@@ -3,7 +3,7 @@ $(document).ready(function () {
     list();
     //save();
     deleteExtra();
-   // cancelEdit();
+    // cancelEdit();
 });
 
 /*function openModal() {
@@ -55,8 +55,13 @@ var deleteExtra = function () {
 
         }).done(function (info) {
             var json_info = JSON.parse(info);
-            console.log(json_info);
-            list();
+
+            if (json_info.message === "deleted") {
+                list();
+                swal("¡Bien!", "¡Eliminado exitosamente!", "success");
+            } else if (json_info.message === "error") {
+                swal("¡Ups!", "¡Eliminado exitosamente!", "error");
+            }
         });
 
     });
@@ -110,8 +115,8 @@ var list = function () {
         }
 
     });
-   // get_data_edit("#extraTable tbody", table);
-    get_id_delete("#commentTable tbody",comment_table);
+    // get_data_edit("#extraTable tbody", table);
+    get_id_delete("#commentTable tbody", comment_table);
 }
 
 

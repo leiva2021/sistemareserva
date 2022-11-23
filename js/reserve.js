@@ -28,9 +28,12 @@ var saveReserve = function () {
                 var json_info = JSON.parse(info);
                 console.log(info);
                 if (json_info.message === "inserted") {
-                    console.log("agregado")
+                    console.log("agregado");
+                    swal("¡Bien!", "¡Reservado exitosamente!", "success");
                 } else if (json_info.message === "error") {
-                    console.log("error")
+
+                    console.log("error");
+                    swal("¡Bien!", "¡Error al reservar!", "success");
                 }
                 $("#ReserveForm").modal("hide");
             }
