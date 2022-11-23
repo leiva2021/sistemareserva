@@ -11,8 +11,8 @@ class UserBusiness
         return UserData::saveUser($user);
     }
 
-    public static function validateCredentials($username, $passwod)
+    public static function validateCredentials($username)
     {
-        return LoginData::validateCredentials($username, $passwod);
+        return LoginData::validateCredentials($username);
     }
 }

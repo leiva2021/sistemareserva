@@ -1,5 +1,4 @@
 <?php
-
 //datos variable sesion
 session_start();
 ?>
@@ -98,7 +97,7 @@ session_start();
                                         <h5 class="fw-bolder"><i class="bi bi-geo-alt"></i><?php echo $room['DESCRIPTIONS']; ?></h1>
                                             <!-- Product price-->
                                             <small><strong>$<?php echo $room['PRICE']; ?></strong></small><br>
-                                            <small>Habitaciones Disponibles <strong><?php echo $room['ROOMAVAILABLE'] , $_SESSION["name"]; ?></strong></small>
+                                            <small>Habitaciones Disponibles <strong><?php echo $room['ROOMAVAILABLE'], $_SESSION["name"]; ?></strong></small>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
@@ -209,7 +208,7 @@ session_start();
 
                         <div class="mb-3">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="txtcomment" name="txtcomment" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="txtcomment" name="txtcomment" style="height: 100px" required></textarea>
                                 <label for="txtcomment">Escribe su comentario</label>
                             </div>
                         </div>

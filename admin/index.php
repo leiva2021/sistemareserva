@@ -42,7 +42,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4"><strong>¡Bienvenido!</strong></h1>
                                     </div>
-                                    <form class="user" method="POST">
+                                    <form class="user" action="./business/useraction.php" method="POST">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Ingrese su usuario..." required autocomplete="off">
                                         </div>
@@ -86,7 +86,7 @@
     <!-- Custom scripts for all pages-->
     <script src="../resources/js/sb-admin-2.min.js"></script>
 
-    <script src="./js/loginscript.js"></script>
+    <!--<script src="./js/loginscript.js"></script>-->
 
 </body>
 

@@ -5,12 +5,11 @@ include_once "data.php";
 class LoginData
 {
 
-    public static function validateCredentials($username, $password)
+    public static function validateCredentials($username)
     {
 
         $connexion = Data::createConnexion();
 
-        $cursor = oci_new_cursor($connexion);
         $stid = oci_parse($connexion, "select Password, Role, Identification, NameUser from Users where Username='" . $username . "'");
         oci_execute($stid);
 
@@ -30,24 +29,6 @@ class LoginData
             "identification" => $identification,
             "name" => $name
         );
-
-        /*if (strcmp($pass, $password) == 0) {
-
-            session_start();
-            $_SESSION["identification"] = $identification;
-
-            if ($role == "Client") {
-                $_SESSION["user"] = $user;
-                header("Location: ../../view/homepublic.php");
-                //var_dump("todo bien");
-
-            } else if ($role == "Admin") {
-                $_SESSION['user'] = $user;
-                header("Location: ../home.php");
-            }
-        } else {
-            $result = "error";
-        }*/
 
         return $array;
     }

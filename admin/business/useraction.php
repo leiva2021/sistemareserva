@@ -3,7 +3,6 @@
 include_once "./userbusiness.php";
 include_once "../domain/user.php";
 
-
 $option = $_POST['opc'];
 $information = [];
 
@@ -21,7 +20,12 @@ switch ($option) {
         break;
 
     case 'login':
-        validateCredentials($_POST['username'], $_POST['password']);
+
+        if (isset($_POST['username']) && !empty($_POST['username']) &&  isset($_POST['password']) && !empty($_POST['password'])) {
+
+            validateCredentials($_POST['username'], $_POST['password']);
+        }
+
         break;
 
     default:
@@ -50,32 +54,22 @@ function inserUser($identification, $nameuser, $lastname, $username, $password, 
 
 function validateCredentials($username, $password)
 {
-    if (isset($username) && isset($password)) {
+    $result = UserBusiness::validateCredentials($username);
 
-        if (!empty($username) && !empty($password)) {
+    if ($result["password"] == $password) {
+        session_start();
+        if ($result["role"] == "Client") {
 
-            $result = UserBusiness::validateCredentials($username, $password);
-            
-                if ($result["password"] == $password) {
-                    session_start();
-                    if ($result["role"] == "Client") {
+            $_SESSION["name"] = $result["name"];
+            $_SESSION["identification"] = $result["identification"];
+            $_SESSION["user"] = $result["user"];
+            header("Location: ../../views/homepublic.php");
+        } else if ($result["role"] == "Admin") {
 
-                        $_SESSION["name"] = $result["name"];
-                        $_SESSION["identification"] = $result["identification"];
-                        $_SESSION["user"] = $result["user"];
-                        header("Location: ../../views/homepublic.php");
-
-                    }else if($result["role"] == "Admin"){
-                        $_SESSION["user"] = $result["user"];
-                        header("Location: home.php");
-                    }
-                }else{
-                    $information['message'] = "dataincorrect";
-                    echo json_encode($information);
-                }
-        } else {
-            $information['message'] = "empty";
-            echo json_encode($information);
+            $_SESSION["name"] = $result["name"];
+            header("Location: ../home.php");
         }
+    } else {
+        header("Location: ../index.php?status=1");
     }
 }
