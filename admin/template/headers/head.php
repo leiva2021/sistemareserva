@@ -178,7 +178,7 @@
                         <?php } else { ?>
                             <a class="collapse-item" href="./resereview.php?type=page&name=reserve">Reservas</a>
                             <a class="collapse-item" href="views/pages/commentsview.php?type=page&name=comment">Comentarios</a>
-                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                            <!--<a class="collapse-item" href="forgot-password.html">Forgot Password</a>-->
 
                         <?php } ?>
                     </div>

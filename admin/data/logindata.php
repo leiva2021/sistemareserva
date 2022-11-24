@@ -10,7 +10,7 @@ class LoginData
 
         $connexion = Data::createConnexion();
 
-        $stid = oci_parse($connexion, "select Password, Role, Identification, NameUser from Users where Username='" . $username . "'");
+        $stid = oci_parse($connexion, "select Password, Role, Identification, NameUser, LastName from Users where Username='" . $username . "'");
         oci_execute($stid);
 
 
@@ -21,13 +21,15 @@ class LoginData
         $role = $row['ROLE'];
         $identification = $row['IDENTIFICATION'];
         $name = $row['NAMEUSER'];
+        $lastname = $row['LASTNAME'];
         $array = array(
 
             "user" => $user,
             "password" => $pass,
             "role" => $role,
             "identification" => $identification,
-            "name" => $name
+            "nameuser" => $name,
+            "lastname" => $lastname
         );
 
         return $array;

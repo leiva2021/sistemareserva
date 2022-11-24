@@ -3,11 +3,17 @@ $(document).ready(function () {
     saveReserve();
     clearModal();
 });
+//room_number,reserve_quantity,identification,nombre
+function openModal(myinfo) {
 
-function openModal(room_number, reserve_quantity) {
+    console.log(myinfo);
+    var temp = myinfo.split("-");
 
-    var roomnumber = $("#roomNumber").val(room_number); //! se carga el numero de habitacion a reservar
-    var reserveQuantity = $("#reserveQuantity").prop('max', reserve_quantity); //! Se pasa la cantidad de habitaciones disponibles
+    var roomnumber = $("#roomNumber").val(temp[0]); //! se carga el numero de habitacion a reservar
+    var reserveQuantity = $("#reserveQuantity").prop('max', temp[1]); //! Se pasa la cantidad de habitaciones disponibles
+    var ID = $("#identification").val(temp[2]);
+    var name = $("#nameClient").val(temp[3]);
+    var lastname = $("#lastnameClient").val(temp[4]);
 
     $("#ReserveForm").modal("show");
 }
@@ -34,6 +40,8 @@ var saveReserve = function () {
 
                     console.log("error");
                     swal("¡Bien!", "¡Error al reservar!", "success");
+
+                    clearForm();
                 }
                 $("#ReserveForm").modal("hide");
             }
@@ -44,6 +52,8 @@ var saveReserve = function () {
 var clearForm = function () {
 
     $("#opc").val("insert");
+    $("#reserveDateStart").val(""),
+    $("#reserveDateEnd").val(""),
     $("#roomNumber").val("");
     $("#didentification").val("");
     $("#nameClient").val("");

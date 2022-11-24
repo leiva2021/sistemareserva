@@ -60,13 +60,14 @@ function validateCredentials($username, $password)
         session_start();
         if ($result["role"] == "Client") {
 
-            $_SESSION["name"] = $result["name"];
+            $_SESSION["name"] = $result["nameuser"];
             $_SESSION["identification"] = $result["identification"];
             $_SESSION["user"] = $result["user"];
+            $_SESSION["lastname"] = $result["lastname"];
             header("Location: ../../views/homepublic.php");
         } else if ($result["role"] == "Admin") {
 
-            $_SESSION["name"] = $result["name"];
+            $_SESSION["name"] = $result["nameuser"];
             $_SESSION["role"] = "Admin";
             header("Location: ../home.php");
         }

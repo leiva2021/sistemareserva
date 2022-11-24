@@ -13,7 +13,10 @@ var loadComment = function () {
         dataType: "json",
     }).done(function (data) {
 
+        console.log("Res: "+data);
+
         var datas = ``;
+
         $.each(data, function (i, item) {
 
             var letterStartName = item.nameuser.charAt(0);
@@ -26,6 +29,7 @@ var loadComment = function () {
             datas += ``;
 
         });
+        
         $("#content").html(datas);
     });
 }

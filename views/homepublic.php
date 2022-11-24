@@ -80,40 +80,64 @@ session_start();
     <!-- Section-->
     <?php
     $allrooms = RoomData::getAllRooms();
+
+    $name = $_SESSION['name'];
     ?>
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <?php foreach ($allrooms as $rooms) {
-                    foreach ($rooms as $room) { ?>
-                        <div class="col mb-5">
-                            <div class="card h-100 " id="myhover">
-                                <!-- Product image-->
-                                <img class="card-img-top" src="../admin/images/<?php echo $room['IMAGE']; ?>" alt="..." />
-                                <!-- Product details-->
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <!-- Product name-->
-                                        <h5 class="fw-bolder"><i class="bi bi-geo-alt"></i><?php echo $room['DESCRIPTIONS']; ?></h1>
-                                            <!-- Product price-->
-                                            <small><strong>$<?php echo $room['PRICE']; ?></strong></small><br>
-                                            <small>Habitaciones Disponibles <strong><?php echo $room['ROOMAVAILABLE'] ?></strong></small>
+                <?php if ($allrooms != null) { ?>
+
+                    <?php foreach ($allrooms as $rooms) {
+                        foreach ($rooms as $room) { ?>
+                            <div class="col mb-5">
+                                <div class="card h-100 " id="myhover">
+                                    <!-- Product image-->
+                                    <img class="card-img-top" src="../admin/images/<?php echo $room['IMAGE']; ?>" alt="..." />
+                                    <!-- Product details-->
+                                    <div class="card-body p-4">
+                                        <div class="text-center">
+                                            <!-- Product name-->
+                                            <h5 class="fw-bolder"><i class="bi bi-geo-alt"></i><?php echo $room['DESCRIPTIONS']; ?></h1>
+                                                <!-- Product price-->
+                                                <small><strong>$<?php echo $room['PRICE']; ?></strong></small><br>
+                                                <small>Habitaciones Disponibles <strong><?php echo $room['ROOMAVAILABLE'] ?></strong></small>
+                                        </div>
+
                                     </div>
 
-                                </div>
-                                <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><button type="button" class="btn btn-outline-dark mt-auto" onclick="openModal(
+                                    <?php 
+                                        $room_number = $room['ROOMNUMBER'];
+                                        $room_available = $room['ROOMAVAILABLE'];
+                                        $identification = $_SESSION['identification'];
+                                        $name = $_SESSION['name'];
+                                        $lastname = $_SESSION['lastname'];
+
+                                        $temp = $room_number."-".$room_available."-".$identification."-".$name."-".$lastname;
+                                    ?>
+                                    <!-- Product actions-->
+                                    <!-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                        <div class="text-center"><button type="button" class="btn btn-outline-dark mt-auto" onclick="openModal(
                                         
                                         <?php echo $room['ROOMNUMBER']; ?>,
-                                        <?php echo $room['ROOMAVAILABLE']; ?>
-                                        
+                                        <?php echo $room['ROOMAVAILABLE']; ?>,
+                                        <?php echo $_SESSION['identification']; ?>,
+
                                         )">Reservar</button></div>
+                                    </div> -->
+
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                        <div class="text-center"><button type="button" class="btn btn-outline-dark mt-auto" onclick="openModal('<?php echo $temp; ?>')">Reservar</button></div>
+                                    </div> 
+
                                 </div>
                             </div>
-                        </div>
-                <?php }
-                } ?>
+                    <?php }
+                    } ?>
+
+                <?php } else { ?>
+                    <center><strong>No hay habitaciones para mostrar</strong></center>
+                <?php } ?>
 
             </div>
         </div>
